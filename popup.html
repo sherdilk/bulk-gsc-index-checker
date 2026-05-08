@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk GSC Index Checker</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-main">
+        <img src="icon.png" alt="Logo" class="app-logo">
+        <div class="header-text">
+          <h1>GSC Index Checker</h1>
+          <p class="subtitle">Bulk check URL index status</p>
+        </div>
+      </div>
+    </header>
+
+    <div id="auth-section" class="section">
+      <div class="auth-card">
+        <p>Please sign in with your Google account to access Search Console data.</p>
+        <button id="btn-signin" class="btn btn-primary">Sign in with Google</button>
+      </div>
+    </div>
+
+    <div id="app-section" class="section hidden">
+      <div class="form-group">
+        <label for="site-selector">Select GSC Property</label>
+        <select id="site-selector" class="input-field">
+          <option value="">Loading properties...</option>
+        </select>
+        <button id="btn-refresh-sites" class="btn btn-icon" title="Refresh properties">↻</button>
+      </div>
+
+      <div class="form-group">
+        <label for="url-input">URLs to Check (One per line)</label>
+        <textarea id="url-input" class="input-field textarea" placeholder="https://example.com/page1&#10;https://example.com/page2"></textarea>
+      </div>
+
+      <div class="action-buttons">
+        <button id="btn-check" class="btn btn-primary">Check Index Status</button>
+        <button id="btn-stop" class="btn btn-danger hidden">Stop Checking</button>
+      </div>
+
+      <div id="progress-container" class="hidden">
+        <div class="progress-info">
+          <span id="progress-text">Checking 0/0 URLs...</span>
+          <span id="progress-percentage">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div id="results-container" class="hidden">
+        <div class="results-header">
+          <h3>Results</h3>
+          <div class="export-actions">
+            <button id="btn-export-indexed" class="btn btn-secondary btn-small">Export Indexed</button>
+            <button id="btn-export-not-indexed" class="btn btn-secondary btn-small">Export Not Indexed</button>
+          </div>
+        </div>
+        
+        <div class="results-summary">
+          <div class="stat-box success">
+            <span class="stat-value" id="stat-indexed">0</span>
+            <span class="stat-label">Indexed</span>
+          </div>
+          <div class="stat-box danger">
+            <span class="stat-value" id="stat-not-indexed">0</span>
+            <span class="stat-label">Not Indexed</span>
+          </div>
+          <div class="stat-box warning">
+            <span class="stat-value" id="stat-errors">0</span>
+            <span class="stat-label">Errors</span>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table id="results-table">
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="results-tbody">
+              <!-- Results populated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://27jobs.net/shery" target="_blank" class="promo-banner">
+      <div class="promo-content">
+        <div class="slide-wrapper">
+          <span class="slide">Need Custom Automation?</span>
+          <span class="slide">Hire a Vibe Software Dev</span>
+          <span class="slide">Professional App Developer</span>
+          <span class="slide">Need Custom Automation?</span> <!-- Repeated for loop -->
+        </div>
+      </div>
+      <div class="promo-action">
+        Click Here <span class="arrow">→</span>
+      </div>
+    </a>
+  </div>
+
+  <script src="utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
