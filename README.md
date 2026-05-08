@@ -52,4 +52,4 @@ Checking massive lists of URLs is subject to these Google-imposed limits.
 
 ## 👨‍💻 Author
 
-**Sher Dil Khan**
+**Shery Baloch**
